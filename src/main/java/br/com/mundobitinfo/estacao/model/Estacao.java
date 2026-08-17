@@ -42,4 +42,8 @@ public class Estacao implements Serializable{
     private String obs;
     @Size(max = 100)
     private String localgps;
+    @Size(max = 100)
+    private String latitude;
+    @Size(max = 100)
+    private String longitude;
 }
