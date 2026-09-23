@@ -2,33 +2,39 @@ package br.com.mundobitinfo.estacao.model;
 
 import java.io.Serializable;
 
-import jakarta.persistence.Entity;
+
+import jakarta.persistence.Id;
+
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-
 
 @Getter
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-public class Empresa implements Serializable{
+public class Cliente implements Serializable{
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	
+	
 	@Id
-	@EqualsAndHashCode.Include
+    @EqualsAndHashCode.Include
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;	
+	private long id;
+   	@NotNull
+    private Boolean ativo;
 	@Size(min = 2, max = 100)
 	@NotBlank(message = "campo obrigatório")
 	private String nome;	
@@ -37,6 +43,11 @@ public class Empresa implements Serializable{
 	private String cnpjcpf;	
 	@Size(max = 20)
 	private String ierg;	
+	@Size(max = 15)
+	@NotBlank(message = "campo obrigatório")
+	private String telefone1;
+	@Size(max = 15)
+	private String telefone2;
 	@Size(max = 80)
 	@NotBlank(message = "campo obrigatório")
 	private String logradouro;	
@@ -56,8 +67,4 @@ public class Empresa implements Serializable{
 	@Size(max = 80)
 	@NotBlank(message = "campo obrigatório")
 	private String estado;
-	private byte[] logo;	
-    @NotNull
-	private Boolean ativo;
-
 }

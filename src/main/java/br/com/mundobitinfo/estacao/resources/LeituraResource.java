@@ -47,6 +47,12 @@ public class LeituraResource {
 		return ResponseEntity.ok(ec.pesquisa());
 	}
 
+		@PostMapping("/pesquisaest")
+	@PreAuthorize("hasAuthority('ROLE_PESQUISAR_LEITURA')")
+	public @ResponseBody ResponseEntity<List<Leitura>> pesquisaest(@RequestBody Long id) {
+		return ResponseEntity.ok(ec.pesquisaest(id));
+	}
+
 	@GetMapping("/{id}")
 	@PreAuthorize("hasAuthority('ROLE_PESQUISAR_LEITURA')")
 	public ResponseEntity<Leitura> buscarPeloCodigo(@PathVariable Long id) {

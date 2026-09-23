@@ -1,29 +1,29 @@
 package br.com.mundobitinfo.estacao.model;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-import jakarta.persistence.Entity;
+
+
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotNull;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
-
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 @Getter
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-public class Leitura implements Serializable{
+public class Cultura_cliente  implements Serializable{
 	
 	/**
 	 * 
@@ -34,23 +34,21 @@ public class Leitura implements Serializable{
     @EqualsAndHashCode.Include
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-    @NotNull
+   	@NotNull
     private Boolean ativo;
     @JsonDeserialize(using = LocalDateDeserializer.class)
-	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
-    private LocalDateTime dthleitura;
-	private BigDecimal umidadesolo30;
-    private BigDecimal umidadesolo60;
-    private BigDecimal umidadesolo90;
-    private BigDecimal temperatura;
-    private BigDecimal umidaddear;
-    private BigDecimal pressao;
-    private BigDecimal pressaorelativa;
-    private BigDecimal luminosidade;  
-    private String dia;
-    private BigDecimal possibilidadechuva;       
+	@JsonFormat(pattern = "dd/MM/yyyy")
+    private LocalDateTime dtplantio;
+    private String adubacao;
+    private String espacentrelinhas;
+    private String espacplantas;
+    private String arcodecultivo;
+    private String profundeoperacao;
     @ManyToOne
-    @JoinColumn(name = "estacao_id")
-    private Estacao estacao;
+    @JoinColumn(name = "cultura_id")
+    private Cultura cultura;
+    @ManyToOne
+    @JoinColumn(name = "cliente_id")
+    private Cliente cliente;
 
 }

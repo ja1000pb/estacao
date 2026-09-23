@@ -35,6 +35,15 @@ public class LeituraCtrl {
 		return null;
 	}
 	
+		public List<Leitura>  pesquisaest(Long id) {	
+		try {
+			return eb.pesquisaest(id);		
+		} catch (Exception e) {
+			// TODO: handle exception
+			new EstacaoException("Falha ao consultar leituras", e.getMessage());
+		}
+		return null;
+	}
 
 	public Leitura atualizar(Long id, Leitura leitura) {
 		return eb.atualizar(id, leitura);
