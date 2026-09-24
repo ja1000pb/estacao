@@ -24,7 +24,7 @@ public class PluviometroBS {
 		if ( (dthinicio == null) ) {
 			return pluviometroRepository.findByAtivoIsTrue();
 		} else {
-			return pluviometroRepository.findByDtindicador(dthinicio);
+			return pluviometroRepository.findByDthinicio(dthinicio);
 		}		
 	}
 
@@ -33,7 +33,7 @@ public class PluviometroBS {
 	}
 
         public List<Pluviometro> buscarPelaLeitura( Long id) {
-    	return pluviometroRepository.findByLeitura_IdAndAtivoIsTrueOrderByDtindicadorDesc(id);
+    	return pluviometroRepository.findByLeitura_IdAndAtivoIsTrueOrderByDthinicioDesc(id);
 	}
 
 	public Pluviometro criar( Pluviometro pluviometro) {

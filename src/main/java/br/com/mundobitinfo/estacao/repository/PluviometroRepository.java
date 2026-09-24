@@ -9,8 +9,8 @@ import org.springframework.data.repository.query.Param;
 import br.com.mundobitinfo.estacao.model.Pluviometro;
 
 public interface PluviometroRepository  extends JpaRepository<Pluviometro, Long> {
-    public List<Pluviometro> findByDtindicador(LocalDateTime dthinicio);
-    public List<Pluviometro> findByLeitura_IdAndAtivoIsTrueOrderByDtindicadorDesc(Long id);
+    public List<Pluviometro> findByDthinicio(LocalDateTime dthinicio);
+    public List<Pluviometro> findByLeitura_IdAndAtivoIsTrueOrderByDthinicioDesc(Long id);
 	public List<Pluviometro> findByAtivoIsTrue();
 	public List<Pluviometro> findTop10ByAtivoIsTrueOrderByIdDesc();
 

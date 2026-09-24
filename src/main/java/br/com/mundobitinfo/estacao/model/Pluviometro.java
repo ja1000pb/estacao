@@ -47,5 +47,8 @@ public class Pluviometro   implements Serializable{
     @ManyToOne
     @JoinColumn(name = "estacao_id")
     private Estacao estacao;
+    @ManyToOne
+    @JoinColumn(name = "leitura_id")
+    private Leitura leitura;
 }
  
